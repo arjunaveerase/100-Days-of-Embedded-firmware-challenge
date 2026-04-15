@@ -1,0 +1,25 @@
+cd ~/ocn_el_proj
+rm -f sample_dump.bin
+python3 - <<'PY'
+data = bytearray(256)
+
+data[96] = 0x19
+data[97] = 0x00
+
+data[98] = 0x80
+data[99] = 0xE8
+
+data[100] = 0x13
+data[101] = 0x88
+
+data[102] = 0x27
+data[103] = 0x10
+
+data[104] = 0x13
+data[105] = 0x88
+
+data[112] = 0x00
+
+with open("sample_dump.bin", "wb") as f:
+    f.write(data)
+PY
